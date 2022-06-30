@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>XMLHTTP</title>
+  </head>
+
+  <body>
+    <h1>Foro 2do Parcial de Aplicaciones de Tecnologias Web</h1>
+
+    <p id="demo">Aquí se espera la información:</p>
+
+    <button type="button" onclick="cargarDatos()">Importar de txt</button>
+    <script>
+      function cargarDatos() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "Marco.txt", true);
+      xhttp.send();
+    }
+    </script>
+  </body>
+</html>
